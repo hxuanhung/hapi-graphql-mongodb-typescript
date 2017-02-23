@@ -6,9 +6,12 @@
 	"scripts": {
 		"build:dev": "sh ./scripts/build.sh",
 		"dev": "nodemon ./dist/src/index.js",
-		"start": "npm run build:dev && npm run dev"
+		"watch": "tsc --watch",
+		"start": "npm run build:dev && npm run dev",
+		"dev:watch": "concurrently --kill-others -n 'watcher,kiosk' -p '{name}' -c 'gray.dim,cyan' 'npm run watch' 'npm run dev'"
 	},
 	"dependencies": {
+		"concurrently": "^3.3.0",
 		"graphql": "^0.9.1",
 		"graphql-server-hapi": "^0.6.0",
 		"graphql-subscriptions": "^0.3.0",
