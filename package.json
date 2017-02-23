@@ -8,10 +8,14 @@
 		"dev": "nodemon ./dist/src/index.js"
 	},
 	"dependencies": {
-		"@types/hapi": "^16.0.0",
+		"apollo-server": "^0.3.3",
 		"graphql": "^0.9.1",
 		"hapi": "^16.1.0",
 		"nodemon": "^1.11.0",
 		"typescript": "^2.2.1"
+	},
+	"devDependencies": {
+		"@types/cookies": "^0.6.0",
+		"@types/hapi": "^16.0.0"
 	}
 }

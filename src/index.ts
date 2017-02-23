@@ -1,4 +1,5 @@
 import * as hapi from 'hapi';
+import { graphiqlHapi } from 'apollo-server';
 const server: hapi.Server = new hapi.Server()
 server.connection({ port: 3000 });
 
@@ -9,6 +10,16 @@ server.route({
 		reply("Hello World")
 	}
 
+});
+
+server.register({
+	register: graphiqlHapi,
+	options: {
+		path: '/graphiql',
+		graphiqlOptions: {
+			endpointURL: '/graphql',
+		},
+	},
 });
 
 server.start((err: any) => {
