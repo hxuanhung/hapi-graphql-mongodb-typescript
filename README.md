@@ -1,0 +1,1 @@
+# hapi-graphql-mongodb-typescript
