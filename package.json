@@ -5,17 +5,21 @@
 	"license": "MIT",
 	"scripts": {
 		"build:dev": "sh ./scripts/build.sh",
-		"dev": "nodemon ./dist/src/index.js"
+		"dev": "nodemon ./dist/src/index.js",
+		"start": "npm run build:dev && npm run dev"
 	},
 	"dependencies": {
-		"apollo-server": "^0.3.3",
 		"graphql": "^0.9.1",
+		"graphql-server-hapi": "^0.6.0",
+		"graphql-subscriptions": "^0.3.0",
+		"graphql-tools": "^0.10.0",
 		"hapi": "^16.1.0",
 		"nodemon": "^1.11.0",
 		"typescript": "^2.2.1"
 	},
 	"devDependencies": {
 		"@types/cookies": "^0.6.0",
+		"@types/graphql": "^0.8.6",
 		"@types/hapi": "^16.0.0"
 	}
 }
