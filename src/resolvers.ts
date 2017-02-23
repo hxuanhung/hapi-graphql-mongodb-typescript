@@ -1,7 +1,7 @@
 export const resolvers = {
 	Query: {
-		hello(root) {
-			return 'Hello World'
+		rollDice(root, { numDice, numSides }) {
+			return [numDice, numSides];
 		}
 	}
 }

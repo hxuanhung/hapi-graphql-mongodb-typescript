@@ -1,6 +1,6 @@
 export const schema = `
 	type Query {
-		 hello: String
+		 rollDice(numDice: Int!, numSides: Int): [Int]
 	}
 
 	schema {
