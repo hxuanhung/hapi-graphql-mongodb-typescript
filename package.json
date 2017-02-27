@@ -10,7 +10,8 @@
 		"watch": "tsc --watch",
 		"start": "npm run build:dev && npm run dev",
 		"dev:watch": "concurrently --kill-others -n 'watcher,kiosk' -p '{name}' -c 'gray.dim,cyan' 'npm run watch' 'npm run dev'",
-		"dev:docker": "docker run hapi-server"
+		"dev:docker": "docker run hapi-server",
+		"server:dev": "npm run build:dev && npm run dev:watch"
 
 	},
 	"dependencies": {
