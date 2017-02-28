@@ -13,18 +13,6 @@ server.connection({ port: 3000 });
 
 const db = mongoose.connect(`mongodb://localhost:27017/test_db`);
 
-/*let mongooseSchema = new mongoose.Schema({ action: String });
-let Event = db.model('event', mongooseSchema);
-
-let analyticEvent = new Event({ action: 'Click' });
-
-analyticEvent.save((err) => {
-	if(err){
-
-	}
-	return;
-})*/
-
 const executableSchema = makeExecutableSchema({
 	typeDefs: schema,
 	resolvers
