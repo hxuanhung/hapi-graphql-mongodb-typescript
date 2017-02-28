@@ -1,11 +1,11 @@
 FROM node:7.6.0
 
-COPY . /hapi
+COPY . /app
 
-WORKDIR /hapi
+WORKDIR /app
 
-RUN npm install && ls
+RUN npm install
 
 EXPOSE 3000 5000
 
-CMD ["npm","run", "dev:watch"]
+CMD ["npm","run", "server:dev"]
