@@ -40,23 +40,6 @@ server.route({
 });
 
 server.route(ROUTES);
-/*server.route({
-	method: "GET",
-	path: "/message",
-	handler: (request: hapi.Request, reply: hapi.IReply) => {
-		reply(new Message().getAllMessages());
-	}
-});
-
-server.register({
-	register: graphqlHapi,
-	options: {
-		path: '/graphql',
-		graphqlOptions: (request) => {
-			return { schema: executableSchema };
-		},
-	},
-});*/
 
 server.register({
 	register: graphiqlHapi,

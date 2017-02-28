@@ -1,4 +1,4 @@
-import * as messageRoutes from './modules/message/routes';
+import { routes as messageRoutes } from './modules/message/routes';
 
 
 export const ROUTES = [].concat(messageRoutes);
