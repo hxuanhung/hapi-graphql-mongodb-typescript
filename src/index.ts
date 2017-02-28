@@ -11,7 +11,7 @@ const server: hapi.Server = new hapi.Server()
 
 server.connection({ port: 3000 });
 
-const db = mongoose.connect(`mongodb://localhost:27017/test_db`);
+const db = mongoose.connect(`mongodb://mongo/test_db`);
 
 const executableSchema = makeExecutableSchema({
 	typeDefs: schema,
