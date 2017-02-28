@@ -4,13 +4,16 @@ import { schema } from './schema';
 import { resolvers } from './resolvers';
 import { makeExecutableSchema } from 'graphql-tools';
 import * as mongoose from 'mongoose';
+import { ROUTES } from './routes';
+import { Message } from './modules/message/Message';
+
 const server: hapi.Server = new hapi.Server()
 
 server.connection({ port: 3000 });
 
 const db = mongoose.connect(`mongodb://localhost:27017/test_db`);
 
-let mongooseSchema = new mongoose.Schema({ action: String });
+/*let mongooseSchema = new mongoose.Schema({ action: String });
 let Event = db.model('event', mongooseSchema);
 
 let analyticEvent = new Event({ action: 'Click' });
@@ -20,7 +23,7 @@ analyticEvent.save((err) => {
 
 	}
 	return;
-})
+})*/
 
 const executableSchema = makeExecutableSchema({
 	typeDefs: schema,
@@ -36,15 +39,7 @@ server.route({
 
 });
 
-server.register({
-	register: graphqlHapi,
-	options: {
-		path: '/graphql',
-		graphqlOptions: (request) => {
-			return { schema: executableSchema };
-		},
-	},
-});
+server.route(ROUTES);
 
 server.register({
 	register: graphiqlHapi,
