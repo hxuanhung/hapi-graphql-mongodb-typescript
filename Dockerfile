@@ -6,6 +6,6 @@ WORKDIR /app
 
 RUN npm install
 
-EXPOSE 3000 5000
+EXPOSE 3000
 
 CMD ["npm","run", "server:dev"]
