@@ -1,7 +1,6 @@
 import * as hapi from 'hapi';
 import { graphqlHapi, graphiqlHapi } from 'graphql-server-hapi';
-import { schema } from './schema';
-import { resolvers } from './resolvers';
+import executableSchema from './schema';
 import { makeExecutableSchema } from 'graphql-tools';
 import * as mongoose from 'mongoose';
 import { ROUTES } from './routes';
@@ -11,12 +10,7 @@ const server: hapi.Server = new hapi.Server()
 
 server.connection({ port: 3000 });
 
-const db = mongoose.connect(`mongodb://mongo/test_db`);
-
-const executableSchema = makeExecutableSchema({
-	typeDefs: schema,
-	resolvers
-});
+const db = mongoose.connect(`mongodb://localhost/test_db`);
 
 server.route({
 	method: "GET",
@@ -28,6 +22,14 @@ server.route({
 });
 
 server.route(ROUTES);
+
+server.register({
+	register: graphqlHapi,
+	options: {
+		path: '/graphql',
+		graphqlOptions: { schema: executableSchema },
+	},
+});
 
 server.register({
 	register: graphiqlHapi,
